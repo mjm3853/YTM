@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.chartist-tooltip {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 5em;
+    padding: .5em;
+    background: #ffeba0;
+    color: #453D3F;
+    font-weight: 700;
+    text-align: center;
+    pointer-events: none;
+    z-index: 10;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear;
+}
+
+.chartist-tooltip:before {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top-color: #ffeba0;
+}
+
+.chartist-tooltip.tooltip-show {
+    opacity: 1;
+}
+
+.ct-area,
+.ct-line {
+    pointer-events: none;
+}
+
+.ct-axis-title {
+    height: 10px;
+    position: absolute;
+}
+
+.easy-autocomplete-container {
+    max-height: 160px;
+}
+
+.hidden {
+    display: none;
+}
+
+.resultBlock {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 10px;
+    background: #ffffff;
+}
+
+.submit-button {
+    margin-bottom: 10px;
+}
+
+.Begin .contact label {
+    display: inline-block;
+    min-width: 215px;
+}
+
+@media ( min-width: 880px) {
+    .Begin .contact label {
+        min-width: 215px;
+    }
+}
+
+@media ( max-width: 500px) {
+    .Begin input,
+    .Begin select,
+    .Begin textarea {
+        padding: 0
+    }
+    .easy-autocomplete input {
+        width: 65px;
+    }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <title>Yield to Maturity Calculator - Good Calculators</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Use this Bond Yield to Maturity Calculator to calculate the bond yield to maturity based on the current bond price, the face value of the bond, the number of years to maturity, and the coupon rate"
+    />
+    <meta name="keywords" content="bond, yield, maturity, current yield, yield to maturity formula, yield to maturity, bond price, calculator, calculation, online calculators"
+    />
+    <meta name="robots" content="all" />
+
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cleartype" content="on">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body class="html front sidebar-first">
+    <div id="page-wrap">
+        <div id="page">
+            <div id="main">
+
+                <div id="content" class="container" role="main" style="background-color:#ffffff; padding-top: 50px;">
+                    <div style="margin-bottom:0px;padding:0px;padding-top:4px;padding-left:0px;background-color:#FFFFFF;">
+                        <div class="goodcalctrs">
+                            <h1>Renee's Bond Yield to Maturity Calculator</h1>
+                            <div class="Begin goodCalculator" style="padding-bottom:0px">
+                                <form class="contact">
+                                    <div>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label for="parval" class="col-sm-3 col-form-label">Par Value / Face Value ($):</label>
+                                                <div class="col-sm-9">
+                                                    <input name="parval" id="parval" class="form-control" type="number" step="any" min="0" value="1000" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="curprice" class="col-sm-3 col-form-label">Current Price ($):</label>
+                                                <div class="col-sm-9">
+                                                    <input name="curprice" id="curprice" class="form-control" type="number" step="any" min="0" value="900" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="couponrat" class="col-sm-3 col-form-label">Coupon Rate (%):</label>
+                                                <div class="col-sm-9">
+                                                    <input id="couponrat" id="couponrat" class="form-control" type="number" step="any" min="0" value="6" />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label for="yeartmat" class="col-sm-3 col-form-label">Years to Maturity:</label>
+                                                <div class="col-sm-9">
+                                                    <input id="yeartmat" id="yeartmat" class="form-control" type="number" step="any" min="0" value="5" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="payments" class="col-sm-3 col-form-label">Payment Interval:</label>
+                                                <div class="col-sm-9">
+
+                                                    <select name="payments" class="custom-select" id="payments" size="1">
+                                                        <option value="1" selected>Annually</option>
+                                                        <option value="2">Semi-Annually</option>
+                                                        <option value="4">Quarterly</option>
+                                                        <option value="12">Monthly</option>
+                                                        <option value="0">None (Zero Coupon)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <input id="submit" type="button" class="btn btn-primary submit-button" name="submit" value="Calculate" onclick="calculate()">
+                                            </div>
+                                        </fieldset>
+
+                                    </div>
+                                </form>
+                                <div class="resultBlock">
+                                    <div class="imgst" style="font-size:16px; font-weight:bold; color: #444444;">Results</div>
+                                    <div id="info" style="margin-top:20px;padding-left:20px;"></div>
+                                    <div id="info5" style="margin-top:20px;padding-left:20px;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <script type='text/javascript' src="/js/jquery.js"></script>
+                    <script type='text/javascript'>
+                        jQuery.noConflict();
+                    </script>
+                    <script src="/js/jquery.min.js"></script>
+                    <script type="text/javascript">
+                        function calculate() {
+                            var e, r, a = 1 * jQuery("#yeartmat").val(),
+                                t = 1 * jQuery("#curprice").val(),
+                                l = 1 * jQuery("#payments").val(),
+                                n = 1 * jQuery("#parval").val(),
+                                u = 1 * jQuery("#couponrat").val();
+
+                            console.log("e: " + e);
+                            console.log("r: " + r);
+                            console.log("a: " + a);
+
+                            if (0 == l ? e = 0 : 1 == l ? e = u : 2 == l ? e = u / 2 : 4 == l ? e = u / 4 : 12 ==
+                                l &&
+                                (e = u / 12), r = n * e / 100 / t, r = 100 * r, r = Math.round(100 * r) / 100,
+                                0 == l)
+                                var o = Math.pow(n / t, 1 / a) - 1;
+                            else var o = YTMCALC(a * l, u / 100 * n / l, -1 * t, n) * l;
+                            resultBlock.removeClass(hiddenClass);
+                            var i = document.getElementById("info");
+                            i.innerHTML = "Yield to Maturity: <b>" + (100 * o).toFixed(7) + "%</b>";
+                            var d = document.getElementById("info5");
+                            d.innerHTML = "Current Yield: <b>" + r.toFixed(7) + "%</b>"
+                        }
+
+                        function YTMCALC(e, r, a, t) {
+                            var l, n, u, o, i = 0,
+                                d = Number.MAX_VALUE;
+                            for (l = .1; d > 1e-10 && 125 > i;) {
+                                if (0 == l) o = l - (a + r * e + t) / (a * e + r * (e * (e - 1)) / 2);
+                                else {
+                                    n = Math.pow(l + 1, e - 1), u = n * (l + 1);
+                                    var v = l * l * e * a * n - r * (u - 1) + l * r * e * n,
+                                        s = l * a * u + r * (u - 1) + l * t;
+                                    o = l * (1 - s / v)
+                                }
+                                i++, d = Math.abs(o - l), l = o
+                            }
+                            return d >= 1e-10 ? Number.NaN : l
+                        }
+                        var hiddenClass = "hidden",
+                            resultBlock = $(".resultBlock");
+                        jQuery(document).ready(function ($) {
+                            calculate();
+                        });
+                    </script>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>
