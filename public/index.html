@@ -102,30 +102,38 @@
                     </script>
                     <script src="/js/jquery.min.js"></script>
                     <script type="text/javascript">
+                        // What does e mean?
                         function calculate() {
-                            var e, r, a = 1 * jQuery("#yeartmat").val(),
-                                t = 1 * jQuery("#curprice").val(),
-                                l = 1 * jQuery("#payments").val(),
-                                n = 1 * jQuery("#parval").val(),
-                                u = 1 * jQuery("#couponrat").val();
+                            var e,
+                                currentYield,
+                                yearsToMaturity = 1 * jQuery("#yeartmat").val(),
+                                currentPrice = 1 * jQuery("#curprice").val(),
+                                payments = 1 * jQuery("#payments").val(),
+                                parValue = 1 * jQuery("#parval").val(),
+                                couponRate = 1 * jQuery("#couponrat").val();
 
-                            console.log("e: " + e);
-                            console.log("r: " + r);
-                            console.log("a: " + a);
+                            if (0 == payments ? e = 0 : 1 == payments ? e = couponRate : 2 == payments ? e = couponRate /
+                                2 : 4 == payments ? e = couponRate / 4 : 12 ==
+                                payments &&
+                                (e = couponRate / 12), currentYield = parValue * e / 100 / currentPrice, currentYield =
+                                100 * currentYield, currentYield = Math.round(
+                                    100 * currentYield) / 100,
+                                0 == payments)
 
-                            if (0 == l ? e = 0 : 1 == l ? e = u : 2 == l ? e = u / 2 : 4 == l ? e = u / 4 : 12 ==
-                                l &&
-                                (e = u / 12), r = n * e / 100 / t, r = 100 * r, r = Math.round(100 * r) / 100,
-                                0 == l)
-                                var o = Math.pow(n / t, 1 / a) - 1;
-                            else var o = YTMCALC(a * l, u / 100 * n / l, -1 * t, n) * l;
-                            resultBlock.removeClass(hiddenClass);
-                            var i = document.getElementById("info");
-                            i.innerHTML = "Yield to Maturity: <b>" + (100 * o).toFixed(7) + "%</b>";
-                            var d = document.getElementById("info5");
-                            d.innerHTML = "Current Yield: <b>" + r.toFixed(7) + "%</b>"
+                                var yieldToMaturity = Math.pow(parValue / currentPrice, 1 / yearsToMaturity) - 1;
+
+                            else var yieldToMaturity = YTMCALC(yearsToMaturity * payments, couponRate / 100 * parValue /
+                                payments, -1 *
+                                currentPrice, parValue) * payments;
+
+                            var ytm = document.getElementById("info");
+                            ytm.innerHTML = "Yield to Maturity: <b>" + (100 * yieldToMaturity).toFixed(7) + "%</b>";
+
+                            var cy = document.getElementById("info5");
+                            cy.innerHTML = "Current Yield: <b>" + currentYield.toFixed(7) + "%</b>"
                         }
 
+                        // What do e, r, a, and t mean?
                         function YTMCALC(e, r, a, t) {
                             var l, n, u, o, i = 0,
                                 d = Number.MAX_VALUE;
@@ -141,8 +149,7 @@
                             }
                             return d >= 1e-10 ? Number.NaN : l
                         }
-                        var hiddenClass = "hidden",
-                            resultBlock = $(".resultBlock");
+                        var resultBlock = $(".resultBlock");
                         jQuery(document).ready(function ($) {
                             calculate();
                         });
